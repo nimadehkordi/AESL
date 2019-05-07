@@ -5,18 +5,9 @@ create_project -name Exercise1 -dir "C:/Projects/Exercise1/planAhead_run_1" -par
 set_param project.pinAheadLayout yes
 set srcset [get_property srcset [current_run -impl]]
 set_property target_constrs_file "ledBlinker.ucf" [current_fileset -constrset]
-set hdlfile [add_files [list {debounce.vhd}]]
+set hdlfile [add_files [list {../../Users/Nima/Desktop/led.vhdl}]]
 set_property file_type VHDL $hdlfile
 set_property library work $hdlfile
-set hdlfile [add_files [list {ledBlinker.vhd}]]
-set_property file_type VHDL $hdlfile
-set_property library work $hdlfile
-set hdlfile [add_files [list {frequencyController.vhd}]]
-set_property file_type VHDL $hdlfile
-set_property library work $hdlfile
-set hdlfile [add_files [list {wholeDesign.vhf}]]
-set_property file_type VHDL $hdlfile
-set_property library work $hdlfile
-set_property top wholeDesign $srcset
+set_property top ledBlinker $srcset
 add_files [list {ledBlinker.ucf}] -fileset [get_property constrset [current_run]]
 open_rtl_design -part xc6slx45fgg676-3

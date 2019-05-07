@@ -1,0 +1,5 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "clk_24" LOC = M21;
+NET "led" LOC = D24;
