@@ -1,6 +1,0 @@
-[Inputs]
-clk_24
-=freq[2:0]=
-[Outputs]
-led
-[BiDir]

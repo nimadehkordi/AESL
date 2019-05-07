@@ -1,29 +1,4 @@
 xst -intstyle ise -ifn "C:/Projects/Exercise1/wholeDesign.xst" -ofn "C:/Projects/Exercise1/wholeDesign.syr" 
-xst -intstyle ise -ifn "C:/Projects/Exercise1/wholeDesign.xst" -ofn "C:/Projects/Exercise1/wholeDesign.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ledBlinker.ucf -p xc6slx45-fgg676-3 wholeDesign.ngc wholeDesign.ngd  
-map -intstyle ise -p xc6slx45-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o wholeDesign_map.ncd wholeDesign.ngd wholeDesign.pcf 
-par -w -intstyle ise -ol high -mt off wholeDesign_map.ncd wholeDesign.ncd wholeDesign.pcf 
-trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml wholeDesign.twx wholeDesign.ncd -o wholeDesign.twr wholeDesign.pcf -ucf ledBlinker.ucf 
-bitgen -intstyle ise -f wholeDesign.ut wholeDesign.ncd 
-xst -intstyle ise -ifn "C:/Projects/Exercise1/wholeDesign.xst" -ofn "C:/Projects/Exercise1/wholeDesign.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ledBlinker.ucf -p xc6slx45-fgg676-3 wholeDesign.ngc wholeDesign.ngd  
-map -intstyle ise -p xc6slx45-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o wholeDesign_map.ncd wholeDesign.ngd wholeDesign.pcf 
-par -w -intstyle ise -ol high -mt off wholeDesign_map.ncd wholeDesign.ncd wholeDesign.pcf 
-trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml wholeDesign.twx wholeDesign.ncd -o wholeDesign.twr wholeDesign.pcf -ucf ledBlinker.ucf 
-bitgen -intstyle ise -f wholeDesign.ut wholeDesign.ncd 
-xst -intstyle ise -ifn "C:/Projects/Exercise1/wholeDesign.xst" -ofn "C:/Projects/Exercise1/wholeDesign.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ledBlinker.ucf -p xc6slx45-fgg676-3 wholeDesign.ngc wholeDesign.ngd  
-map -intstyle ise -p xc6slx45-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o wholeDesign_map.ncd wholeDesign.ngd wholeDesign.pcf 
-par -w -intstyle ise -ol high -mt off wholeDesign_map.ncd wholeDesign.ncd wholeDesign.pcf 
-trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml wholeDesign.twx wholeDesign.ncd -o wholeDesign.twr wholeDesign.pcf -ucf ledBlinker.ucf 
-bitgen -intstyle ise -f wholeDesign.ut wholeDesign.ncd 
-xst -intstyle ise -ifn "C:/Projects/Exercise1/wholeDesign.xst" -ofn "C:/Projects/Exercise1/wholeDesign.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ledBlinker.ucf -p xc6slx45-fgg676-3 wholeDesign.ngc wholeDesign.ngd  
-map -intstyle ise -p xc6slx45-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o wholeDesign_map.ncd wholeDesign.ngd wholeDesign.pcf 
-par -w -intstyle ise -ol high -mt off wholeDesign_map.ncd wholeDesign.ncd wholeDesign.pcf 
-trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml wholeDesign.twx wholeDesign.ncd -o wholeDesign.twr wholeDesign.pcf -ucf ledBlinker.ucf 
-bitgen -intstyle ise -f wholeDesign.ut wholeDesign.ncd 
-xst -intstyle ise -ifn "C:/Projects/Exercise1/wholeDesign.xst" -ofn "C:/Projects/Exercise1/wholeDesign.syr" 
 ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ledBlinker.ucf -p xc6slx45-fgg676-3 wholeDesign.ngc wholeDesign.ngd  
 map -intstyle ise -p xc6slx45-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o wholeDesign_map.ncd wholeDesign.ngd wholeDesign.pcf 
 par -w -intstyle ise -ol high -mt off wholeDesign_map.ncd wholeDesign.ncd wholeDesign.pcf 

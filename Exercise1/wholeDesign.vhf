@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : wholeDesign.vhf
--- /___/   /\     Timestamp : 05/07/2019 20:21:43
+-- /___/   /\     Timestamp : 05/07/2019 20:57:00
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
