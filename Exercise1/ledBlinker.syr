@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.30 secs
+Total CPU time to Xst completion: 0.29 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.31 secs
+Total CPU time to Xst completion: 0.29 secs
  
 --> Reading design: ledBlinker.prj
 
@@ -105,7 +105,7 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Users\Nima\Desktop\led.vhdl" into library work
+Parsing VHDL file "C:\Projects\Exercise1\led.vhdl" into library work
 Parsing entity <ledBlinker>.
 Parsing architecture <behavior> of entity <ledblinker>.
 
@@ -120,7 +120,7 @@ Elaborating entity <ledBlinker> (architecture <behavior>) from library <work>.
 =========================================================================
 
 Synthesizing Unit <ledBlinker>.
-    Related source file is "C:\Users\Nima\Desktop\led.vhdl".
+    Related source file is "C:\Projects\Exercise1\led.vhdl".
     Found 1-bit register for signal <led_int>.
     Found 24-bit register for signal <counter>.
     Found 24-bit adder for signal <counter[23]_GND_4_o_add_1_OUT> created at line 1241.
@@ -361,12 +361,12 @@ clk_24         |    3.226|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.69 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.78 secs
  
 --> 
 
-Total memory usage is 255340 kilobytes
+Total memory usage is 255276 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
