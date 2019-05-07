@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.29 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.29 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: ledBlinker.prj
 
@@ -114,6 +114,7 @@ Parsing architecture <behavior> of entity <ledblinker>.
 =========================================================================
 
 Elaborating entity <ledBlinker> (architecture <behavior>) from library <work>.
+WARNING:HDLCompiler:871 - "C:\Projects\Exercise1\led.vhdl" Line 20: Using initial value "111" for freq_int since it is never assigned
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -121,6 +122,7 @@ Elaborating entity <ledBlinker> (architecture <behavior>) from library <work>.
 
 Synthesizing Unit <ledBlinker>.
     Related source file is "C:\Projects\Exercise1\led.vhdl".
+WARNING:Xst:647 - Input <freq> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 1-bit register for signal <led_int>.
     Found 24-bit register for signal <counter>.
     Found 24-bit adder for signal <counter[23]_GND_4_o_add_1_OUT> created at line 1241.
@@ -166,6 +168,8 @@ Macro Statistics
 =========================================================================
 
 Optimizing unit <ledBlinker> ...
+WARNING:Xst:1293 - FF/Latch <counter_22> has a constant value of 0 in block <ledBlinker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <counter_23> has a constant value of 0 in block <ledBlinker>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -177,8 +181,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 25
- Flip-Flops                                            : 25
+# Registers                                            : 23
+ Flip-Flops                                            : 23
 
 =========================================================================
 
@@ -201,17 +205,19 @@ Top Level Output File Name         : ledBlinker.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 106
+# BELS                             : 97
 #      GND                         : 1
 #      INV                         : 1
-#      LUT1                        : 23
-#      LUT5                        : 25
-#      LUT6                        : 8
-#      MUXCY                       : 23
+#      LUT1                        : 21
+#      LUT2                        : 22
+#      LUT3                        : 2
+#      LUT5                        : 1
+#      LUT6                        : 5
+#      MUXCY                       : 21
 #      VCC                         : 1
-#      XORCY                       : 24
-# FlipFlops/Latches                : 25
-#      FD                          : 25
+#      XORCY                       : 22
+# FlipFlops/Latches                : 23
+#      FD                          : 23
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 1
@@ -224,19 +230,19 @@ Selected Device : 6slx45fgg676-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              25  out of  54576     0%  
- Number of Slice LUTs:                   57  out of  27288     0%  
-    Number used as Logic:                57  out of  27288     0%  
+ Number of Slice Registers:              23  out of  54576     0%  
+ Number of Slice LUTs:                   52  out of  27288     0%  
+    Number used as Logic:                52  out of  27288     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     57
-   Number with an unused Flip Flop:      32  out of     57    56%  
-   Number with an unused LUT:             0  out of     57     0%  
-   Number of fully used LUT-FF pairs:    25  out of     57    43%  
+ Number of LUT Flip Flop pairs used:     52
+   Number with an unused Flip Flop:      29  out of     52    55%  
+   Number with an unused LUT:             0  out of     52     0%  
+   Number of fully used LUT-FF pairs:    23  out of     52    44%  
    Number of unique control sets:         1
 
 IO Utilization: 
- Number of IOs:                           2
+ Number of IOs:                           5
  Number of bonded IOBs:                   2  out of    358     0%  
 
 Specific Feature Utilization:
@@ -263,7 +269,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk_24                             | BUFGP                  | 25    |
+clk_24                             | BUFGP                  | 23    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -274,9 +280,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.226ns (Maximum Frequency: 309.972MHz)
+   Minimum period: 3.911ns (Maximum Frequency: 255.669MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 3.634ns
+   Maximum output required time after clock: 3.668ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -285,52 +291,33 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_24'
-  Clock period: 3.226ns (frequency: 309.972MHz)
-  Total number of paths / destination ports: 901 / 25
+  Clock period: 3.911ns (frequency: 255.669MHz)
+  Total number of paths / destination ports: 761 / 23
 -------------------------------------------------------------------------
-Delay:               3.226ns (Levels of Logic = 22)
-  Source:            counter_0 (FF)
-  Destination:       counter_19 (FF)
+Delay:               3.911ns (Levels of Logic = 3)
+  Source:            counter_18 (FF)
+  Destination:       counter_0 (FF)
   Source Clock:      clk_24 rising
   Destination Clock: clk_24 rising
 
-  Data Path: counter_0 to counter_19
+  Data Path: counter_18 to counter_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               3   0.447   0.650  counter_0 (counter_0)
-     INV:I->O              1   0.206   0.000  Mcount_counter_lut<0>_INV_0 (Mcount_counter_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  Mcount_counter_cy<0> (Mcount_counter_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<1> (Mcount_counter_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<2> (Mcount_counter_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<3> (Mcount_counter_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<4> (Mcount_counter_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<5> (Mcount_counter_cy<5>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<6> (Mcount_counter_cy<6>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<7> (Mcount_counter_cy<7>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<8> (Mcount_counter_cy<8>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<9> (Mcount_counter_cy<9>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<10> (Mcount_counter_cy<10>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<11> (Mcount_counter_cy<11>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<12> (Mcount_counter_cy<12>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<13> (Mcount_counter_cy<13>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<14> (Mcount_counter_cy<14>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<15> (Mcount_counter_cy<15>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<16> (Mcount_counter_cy<16>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<17> (Mcount_counter_cy<17>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<18> (Mcount_counter_cy<18>)
-     XORCY:CI->O           1   0.180   0.924  Mcount_counter_xor<19> (Result<19>)
-     LUT5:I0->O            1   0.203   0.000  counter_19_rstpot (counter_19_rstpot)
-     FD:D                      0.102          counter_19
+     FD:C->Q               2   0.447   0.961  counter_18 (counter_18)
+     LUT5:I0->O            3   0.203   0.879  counter[23]_GND_4_o_equal_1_o<23>2 (counter[23]_GND_4_o_equal_1_o<23>1)
+     LUT6:I3->O           12   0.205   0.909  counter[23]_GND_4_o_equal_1_o<23>5 (counter[23]_GND_4_o_equal_1_o)
+     LUT2:I1->O            1   0.205   0.000  counter_0_rstpot (counter_0_rstpot)
+     FD:D                      0.102          counter_0
     ----------------------------------------
-    Total                      3.226ns (1.652ns logic, 1.574ns route)
-                                       (51.2% logic, 48.8% route)
+    Total                      3.911ns (1.162ns logic, 2.749ns route)
+                                       (29.7% logic, 70.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_24'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              3.634ns (Levels of Logic = 1)
+Offset:              3.668ns (Levels of Logic = 1)
   Source:            led_int (FF)
   Destination:       led (PAD)
   Source Clock:      clk_24 rising
@@ -339,11 +326,11 @@ Offset:              3.634ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  led_int (led_int)
+     FD:C->Q               3   0.447   0.650  led_int (led_int)
      OBUF:I->O                 2.571          led_OBUF (led)
     ----------------------------------------
-    Total                      3.634ns (3.018ns logic, 0.616ns route)
-                                       (83.0% logic, 17.0% route)
+    Total                      3.668ns (3.018ns logic, 0.650ns route)
+                                       (82.3% logic, 17.7% route)
 
 =========================================================================
 
@@ -355,20 +342,20 @@ Clock to Setup on destination clock clk_24
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_24         |    3.226|         |         |         |
+clk_24         |    3.911|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 6.78 secs
+Total CPU time to Xst completion: 6.14 secs
  
 --> 
 
-Total memory usage is 255276 kilobytes
+Total memory usage is 254892 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

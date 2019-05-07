@@ -1,0 +1,7 @@
+[Inputs]
+clk
+button_down
+button_up
+[Outputs]
+=freq[2:0]=
+[BiDir]

@@ -29,6 +29,8 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_SPL" xil_pn:name="frequencyController.spl"/>
+    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="frequencyController.sym" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="ledBlinker.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="ledBlinker.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="ledBlinker.lso"/>
@@ -36,40 +38,74 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="ledBlinker.ngc"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="ledBlinker.ngd"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="ledBlinker.ngr"/>
-    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="ledBlinker.pad"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="ledBlinker.par" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="ledBlinker.pcf" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ledBlinker.prj"/>
-    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="ledBlinker.ptwx"/>
+    <file xil_pn:fileType="FILE_SPL" xil_pn:name="ledBlinker.spl"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="ledBlinker.stx"/>
+    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="ledBlinker.sym" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="ledBlinker.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="ledBlinker.twr" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="ledBlinker.twx" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="ledBlinker.unroutes" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="ledBlinker.ut" xil_pn:subbranch="FPGAConfiguration"/>
-    <file xil_pn:fileType="FILE_XPI" xil_pn:name="ledBlinker.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="ledBlinker.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="ledBlinker_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="ledBlinker_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="ledBlinker_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="ledBlinker_map.mrp" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="ledBlinker_map.ncd" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="ledBlinker_map.ngm" xil_pn:subbranch="Map"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ledBlinker_map.xrpt"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ledBlinker_ngdbuild.xrpt"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="ledBlinker_pad.csv" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="ledBlinker_pad.txt" xil_pn:subbranch="Par"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ledBlinker_par.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="ledBlinker_summary.html"/>
-    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="ledBlinker_summary.xml"/>
-    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="ledBlinker_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ledBlinker_xst.xrpt"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="ledblinker.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="ledblinker.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="ledblinker.drc" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_1"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_2"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="wholeDesign.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="wholeDesign.cmd_log"/>
+    <file xil_pn:fileType="FILE_JHD" xil_pn:name="wholeDesign.jhd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="wholeDesign.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="wholeDesign.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="wholeDesign.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="wholeDesign.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="wholeDesign.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="wholeDesign.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="wholeDesign.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="wholeDesign.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="wholeDesign.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="wholeDesign.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="wholeDesign.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="wholeDesign.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="wholeDesign.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="wholeDesign.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="wholeDesign.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="wholeDesign.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_VHDL" xil_pn:name="wholeDesign.vhf"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="wholeDesign.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="wholeDesign.xst"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="wholeDesign_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="wholeDesign_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="wholeDesign_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="wholeDesign_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="wholeDesign_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="wholeDesign_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="wholeDesign_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="wholeDesign_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="wholeDesign_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="wholeDesign_par.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="wholeDesign_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="wholeDesign_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="wholeDesign_xst.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="wholedesign.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="wholedesign.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="wholedesign.drc" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
@@ -78,11 +114,12 @@
     <transform xil_pn:end_ts="1557251289" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1557251289">
       <status xil_pn:value="SuccessfullyRun"/>
     </transform>
-    <transform xil_pn:end_ts="1557251289" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-1691740716315986320" xil_pn:start_ts="1557251289">
+    <transform xil_pn:end_ts="1557253304" xil_pn:in_ck="-3485935514790317307" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-8933478035655931516" xil_pn:start_ts="1557253302">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="wholeDesign.vhf"/>
     </transform>
-    <transform xil_pn:end_ts="1557251289" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="518991493231092322" xil_pn:start_ts="1557251289">
+    <transform xil_pn:end_ts="1557253304" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-2569525128647892298" xil_pn:start_ts="1557253304">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -90,7 +127,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1557251289" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="1232101396317664242" xil_pn:start_ts="1557251289">
+    <transform xil_pn:end_ts="1557253304" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="958564054306270086" xil_pn:start_ts="1557253304">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -98,85 +135,88 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1557251370" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="9015624778747758828" xil_pn:start_ts="1557251370">
+    <transform xil_pn:end_ts="1557253304" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-626307013571067968" xil_pn:start_ts="1557253304">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1557251382" xil_pn:in_ck="3076119212083055909" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="3154146700424844667" xil_pn:start_ts="1557251370">
+    <transform xil_pn:end_ts="1557253974" xil_pn:in_ck="-367034587129361758" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="796444730476415695" xil_pn:start_ts="1557253964">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="ledBlinker.lso"/>
-      <outfile xil_pn:name="ledBlinker.ngc"/>
-      <outfile xil_pn:name="ledBlinker.ngr"/>
-      <outfile xil_pn:name="ledBlinker.prj"/>
-      <outfile xil_pn:name="ledBlinker.stx"/>
-      <outfile xil_pn:name="ledBlinker.syr"/>
-      <outfile xil_pn:name="ledBlinker.xst"/>
-      <outfile xil_pn:name="ledBlinker_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="wholeDesign.jhd"/>
+      <outfile xil_pn:name="wholeDesign.lso"/>
+      <outfile xil_pn:name="wholeDesign.ngc"/>
+      <outfile xil_pn:name="wholeDesign.ngr"/>
+      <outfile xil_pn:name="wholeDesign.prj"/>
+      <outfile xil_pn:name="wholeDesign.stx"/>
+      <outfile xil_pn:name="wholeDesign.syr"/>
+      <outfile xil_pn:name="wholeDesign.xst"/>
+      <outfile xil_pn:name="wholeDesign_xst.xrpt"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1557251382" xil_pn:in_ck="-6343500360955339160" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="1290411806414976999" xil_pn:start_ts="1557251382">
+    <transform xil_pn:end_ts="1557253797" xil_pn:in_ck="-6343500360955339160" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-5799957717236002565" xil_pn:start_ts="1557253797">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1557251389" xil_pn:in_ck="5760041256820273930" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-6126720636553627795" xil_pn:start_ts="1557251382">
+    <transform xil_pn:end_ts="1557253980" xil_pn:in_ck="5350692942682401801" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-4862041468478670719" xil_pn:start_ts="1557253974">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-      <outfile xil_pn:name="ledBlinker.bld"/>
-      <outfile xil_pn:name="ledBlinker.ngd"/>
-      <outfile xil_pn:name="ledBlinker_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="wholeDesign.bld"/>
+      <outfile xil_pn:name="wholeDesign.ngd"/>
+      <outfile xil_pn:name="wholeDesign_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1557251402" xil_pn:in_ck="-4135940256624713525" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="2155144218836469666" xil_pn:start_ts="1557251389">
+    <transform xil_pn:end_ts="1557253991" xil_pn:in_ck="-825383817805068373" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="2155144218836469666" xil_pn:start_ts="1557253980">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
-      <outfile xil_pn:name="ledBlinker.pcf"/>
-      <outfile xil_pn:name="ledBlinker_map.map"/>
-      <outfile xil_pn:name="ledBlinker_map.mrp"/>
-      <outfile xil_pn:name="ledBlinker_map.ncd"/>
-      <outfile xil_pn:name="ledBlinker_map.ngm"/>
-      <outfile xil_pn:name="ledBlinker_map.xrpt"/>
-      <outfile xil_pn:name="ledBlinker_summary.xml"/>
-      <outfile xil_pn:name="ledBlinker_usage.xml"/>
+      <outfile xil_pn:name="wholeDesign.pcf"/>
+      <outfile xil_pn:name="wholeDesign_map.map"/>
+      <outfile xil_pn:name="wholeDesign_map.mrp"/>
+      <outfile xil_pn:name="wholeDesign_map.ncd"/>
+      <outfile xil_pn:name="wholeDesign_map.ngm"/>
+      <outfile xil_pn:name="wholeDesign_map.xrpt"/>
+      <outfile xil_pn:name="wholeDesign_summary.xml"/>
+      <outfile xil_pn:name="wholeDesign_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1557251422" xil_pn:in_ck="-1028586666961448412" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1557251402">
+    <transform xil_pn:end_ts="1557254009" xil_pn:in_ck="-8527692888714795779" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1557253991">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
-      <outfile xil_pn:name="ledBlinker.ncd"/>
-      <outfile xil_pn:name="ledBlinker.pad"/>
-      <outfile xil_pn:name="ledBlinker.par"/>
-      <outfile xil_pn:name="ledBlinker.ptwx"/>
-      <outfile xil_pn:name="ledBlinker.unroutes"/>
-      <outfile xil_pn:name="ledBlinker.xpi"/>
-      <outfile xil_pn:name="ledBlinker_pad.csv"/>
-      <outfile xil_pn:name="ledBlinker_pad.txt"/>
-      <outfile xil_pn:name="ledBlinker_par.xrpt"/>
+      <outfile xil_pn:name="wholeDesign.ncd"/>
+      <outfile xil_pn:name="wholeDesign.pad"/>
+      <outfile xil_pn:name="wholeDesign.par"/>
+      <outfile xil_pn:name="wholeDesign.ptwx"/>
+      <outfile xil_pn:name="wholeDesign.unroutes"/>
+      <outfile xil_pn:name="wholeDesign.xpi"/>
+      <outfile xil_pn:name="wholeDesign_pad.csv"/>
+      <outfile xil_pn:name="wholeDesign_pad.txt"/>
+      <outfile xil_pn:name="wholeDesign_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1557251439" xil_pn:in_ck="-6343500360955346785" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1557251422">
+    <transform xil_pn:end_ts="1557254025" xil_pn:in_ck="-7568856059574655877" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1557254009">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
-      <outfile xil_pn:name="ledBlinker.ut"/>
-      <outfile xil_pn:name="ledblinker.bgn"/>
-      <outfile xil_pn:name="ledblinker.bit"/>
-      <outfile xil_pn:name="ledblinker.drc"/>
       <outfile xil_pn:name="usage_statistics_webtalk.html"/>
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="wholeDesign.ut"/>
+      <outfile xil_pn:name="wholedesign.bgn"/>
+      <outfile xil_pn:name="wholedesign.bit"/>
+      <outfile xil_pn:name="wholedesign.drc"/>
     </transform>
-    <transform xil_pn:end_ts="1557251422" xil_pn:in_ck="-7585209715264534201" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1557251416">
+    <transform xil_pn:end_ts="1557254009" xil_pn:in_ck="2760009323320723491" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1557254002">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
-      <outfile xil_pn:name="ledBlinker.twr"/>
-      <outfile xil_pn:name="ledBlinker.twx"/>
+      <outfile xil_pn:name="wholeDesign.twr"/>
+      <outfile xil_pn:name="wholeDesign.twx"/>
     </transform>
   </transforms>
 

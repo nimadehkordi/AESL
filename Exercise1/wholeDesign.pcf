@@ -1,0 +1,14 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue May 07 20:33:09 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk_24" LOCATE = SITE "M21" LEVEL 1;
+COMP "led" LOCATE = SITE "D24" LEVEL 1;
+COMP "freq_out<0>" LOCATE = SITE "N24" LEVEL 1;
+COMP "freq_out<1>" LOCATE = SITE "N23" LEVEL 1;
+COMP "freq_out<2>" LOCATE = SITE "M24" LEVEL 1;
+COMP "button_up" LOCATE = SITE "AA23" LEVEL 1;
+COMP "button_down" LOCATE = SITE "AC24" LEVEL 1;
+SCHEMATIC END;
+

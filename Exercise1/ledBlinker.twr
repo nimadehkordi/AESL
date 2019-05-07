@@ -37,7 +37,7 @@ Clock clk_24 to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-led         |         9.883(R)|      SLOW  |         5.411(R)|      FAST  |clk_24_BUFGP      |   0.000|
+led         |        10.105(R)|      SLOW  |         5.545(R)|      FAST  |clk_24_BUFGP      |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk_24
@@ -45,11 +45,11 @@ Clock to Setup on destination clock clk_24
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_24         |    3.136|         |         |         |
+clk_24         |    3.031|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Tue May 07 19:58:22 2019 
+Analysis completed Tue May 07 20:12:42 2019 
 --------------------------------------------------------------------------------
 
 Trace Settings:

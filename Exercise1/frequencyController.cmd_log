@@ -1,0 +1,2 @@
+vhdtdtfi -lib work frequencyController.vhd -prj Exercise1 -o frequencyController.spl -module frequencyController -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 frequencyController.spl C:/Projects/Exercise1/frequencyController.sym 
