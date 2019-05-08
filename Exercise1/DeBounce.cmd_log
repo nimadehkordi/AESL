@@ -1,0 +1,8 @@
+vhdtdtfi -prj Exercise1 -o C:/Projects/Exercise1/DeBounce.vhi -module DeBounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 
+vhdtdtfi -prj Exercise1 -o C:/Projects/Exercise1/Debounce.vhi -module Debounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 
+vhdtdtfi -prj Exercise1 -o C:/Projects/Exercise1/Debounce.vhi -module Debounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 
+vhdtdtfi -prj Exercise1 -o C:/Projects/Exercise1/Debounce.vhi -module Debounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 
+vhdtdtfi -prj Exercise1 -o C:/Projects/Exercise1/debounce.vhi -module debounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 
+vhdtdtfi -prj Exercise1 -o C:/Projects/Exercise1/debounce.vhi -module debounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 
+vhdtdtfi -prj Exercise1 -o C:/Projects/Exercise1/debounce.vhi -module debounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 
+vhdtdtfi -prj Exercise1 -o C:/Projects/Exercise1/debounce.vhi -module debounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 

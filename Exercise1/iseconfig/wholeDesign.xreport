@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-05-07T21:50:18</DateModified>
+  <DateModified>2019-05-08T19:06:23</DateModified>
   <ModuleName>wholeDesign</ModuleName>
-  <SummaryTimeStamp>2019-05-07T21:48:56</SummaryTimeStamp>
-  <SavedFilePath>C:/Projects/Exercise1/iseconfig/ledBlinker.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Projects/Exercise1</ImplementationReportsDirectory>
-  <DateInitialized>2019-05-07T21:34:48</DateInitialized>
+  <SummaryTimeStamp>2019-05-08T19:05:23</SummaryTimeStamp>
+  <SavedFilePath>C:/Projects/Exercise1/iseconfig/wholeDesign.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Projects/Exercise1\</ImplementationReportsDirectory>
+  <DateInitialized>2019-05-07T22:03:46</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

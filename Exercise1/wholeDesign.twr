@@ -32,12 +32,24 @@ Data Sheet report:
 -----------------
 All values displayed in nanoseconds (ns)
 
+Setup/Hold to clock clk_24
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+button_down |    2.220(R)|      SLOW  |   -1.554(R)|      SLOW  |clk_24_BUFGP      |   0.000|
+button_up   |    1.871(R)|      SLOW  |   -1.197(R)|      SLOW  |clk_24_BUFGP      |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
 Clock clk_24 to Pad
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-led         |         9.955(R)|      SLOW  |         5.466(R)|      FAST  |clk_24_BUFGP      |   0.000|
+freq_out<0> |         8.493(R)|      SLOW  |         4.566(R)|      FAST  |clk_24_BUFGP      |   0.000|
+freq_out<1> |         7.398(R)|      SLOW  |         3.911(R)|      FAST  |clk_24_BUFGP      |   0.000|
+freq_out<2> |         9.348(R)|      SLOW  |         5.090(R)|      FAST  |clk_24_BUFGP      |   0.000|
+led         |         9.762(R)|      SLOW  |         5.298(R)|      FAST  |clk_24_BUFGP      |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk_24
@@ -45,18 +57,18 @@ Clock to Setup on destination clock clk_24
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_24         |    3.127|         |         |         |
+clk_24         |    5.197|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Tue May 07 20:57:55 2019 
+Analysis completed Wed May 08 19:07:17 2019 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 258 MB
+Peak Memory Usage: 263 MB
 
 
 

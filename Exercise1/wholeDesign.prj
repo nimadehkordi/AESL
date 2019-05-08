@@ -1,3 +1,4 @@
+vhdl work "debounce.vhd"
 vhdl work "led.vhdl"
 vhdl work "frequencyController.vhd"
 vhdl work "wholeDesign.vhf"

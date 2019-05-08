@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.28 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.28 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: wholeDesign.prj
 
@@ -105,6 +105,9 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Parsing VHDL file "C:\Projects\Exercise1\debounce.vhd" into library work
+Parsing entity <debounce>.
+Parsing architecture <behav> of entity <debounce>.
 Parsing VHDL file "C:\Projects\Exercise1\led.vhdl" into library work
 Parsing entity <ledBlinker>.
 Parsing architecture <behavior> of entity <ledblinker>.
@@ -125,6 +128,8 @@ Elaborating entity <ledBlinker> (architecture <behavior>) from library <work>.
 INFO:HDLCompiler:679 - "C:\Projects\Exercise1\led.vhdl" Line 90. Case statement is complete. others clause is never selected
 
 Elaborating entity <frequencyController> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <debounce> (architecture <behav>) from library <work>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -150,22 +155,43 @@ Unit <ledBlinker> synthesized.
 
 Synthesizing Unit <frequencyController>.
     Related source file is "C:\Projects\Exercise1\frequencyController.vhd".
-WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <button_down> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <button_up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 3-bit register for signal <freq_int>.
+    Found 3-bit adder for signal <freq_int[2]_GND_7_o_add_1_OUT> created at line 1241.
+    Found 3-bit subtractor for signal <GND_7_o_GND_7_o_sub_4_OUT<2:0>> created at line 1308.
+    Found 3-bit comparator greater for signal <freq_int[2]_PWR_7_o_LessThan_1_o> created at line 70
+    Found 3-bit comparator greater for signal <GND_7_o_freq_int[2]_LessThan_3_o> created at line 72
     Summary:
-	no macro.
+	inferred   1 Adder/Subtractor(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   2 Comparator(s).
 Unit <frequencyController> synthesized.
+
+Synthesizing Unit <debounce>.
+    Related source file is "C:\Projects\Exercise1\debounce.vhd".
+    Found 1-bit register for signal <pulse_out>.
+    Found 32-bit register for signal <count>.
+    Found 1-bit register for signal <state>.
+    Found 32-bit adder for signal <count[31]_GND_8_o_add_1_OUT> created at line 43.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  34 D-type flip-flop(s).
+Unit <debounce> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 4
  24-bit adder                                          : 1
-# Registers                                            : 2
- 1-bit register                                        : 1
+ 3-bit addsub                                          : 1
+ 32-bit adder                                          : 2
+# Registers                                            : 9
+ 1-bit register                                        : 5
  24-bit register                                       : 1
+ 3-bit register                                        : 1
+ 32-bit register                                       : 2
+# Comparators                                          : 2
+ 3-bit comparator greater                              : 2
 # Multiplexers                                         : 21
  1-bit 2-to-1 multiplexer                              : 7
  1-bit 8-to-1 multiplexer                              : 1
@@ -178,14 +204,27 @@ Macro Statistics
 =========================================================================
 
 
+Synthesizing (advanced) Unit <debounce>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+Unit <debounce> synthesized (advanced).
+
+Synthesizing (advanced) Unit <frequencyController>.
+The following registers are absorbed into counter <freq_int>: 1 register on signal <freq_int>.
+Unit <frequencyController> synthesized (advanced).
+
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
 # Adders/Subtractors                                   : 1
  24-bit adder                                          : 1
-# Registers                                            : 25
- Flip-Flops                                            : 25
+# Counters                                             : 3
+ 3-bit updown counter                                  : 1
+ 32-bit up counter                                     : 2
+# Registers                                            : 29
+ Flip-Flops                                            : 29
+# Comparators                                          : 2
+ 3-bit comparator greater                              : 2
 # Multiplexers                                         : 21
  1-bit 2-to-1 multiplexer                              : 7
  1-bit 8-to-1 multiplexer                              : 1
@@ -199,12 +238,34 @@ Macro Statistics
 
 Optimizing unit <wholeDesign> ...
 
+Optimizing unit <frequencyController> ...
+
+Optimizing unit <debounce> ...
+
 Optimizing unit <ledBlinker> ...
-WARNING:Xst:1293 - FF/Latch <XLXI_1/counter_23> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <XLXI_2/Inst_debounce_up/count_23> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_up/count_24> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_up/count_25> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_up/count_26> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_up/count_27> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_up/count_28> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_up/count_29> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_up/count_30> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_up/count_31> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_23> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_24> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_25> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_26> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_27> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_28> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_29> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_30> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <XLXI_2/Inst_debounce_down/count_31> has a constant value of 0 in block <wholeDesign>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block wholeDesign, actual ratio is 0.
+FlipFlop XLXI_2/freq_int_1 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -212,8 +273,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 24
- Flip-Flops                                            : 24
+# Registers                                            : 79
+ Flip-Flops                                            : 79
 
 =========================================================================
 
@@ -236,21 +297,27 @@ Top Level Output File Name         : wholeDesign.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 102
+# BELS                             : 286
 #      GND                         : 1
-#      INV                         : 1
-#      LUT1                        : 22
-#      LUT5                        : 26
-#      LUT6                        : 6
-#      MUXCY                       : 22
+#      INV                         : 4
+#      LUT1                        : 67
+#      LUT2                        : 2
+#      LUT3                        : 6
+#      LUT4                        : 7
+#      LUT5                        : 11
+#      LUT6                        : 49
+#      MUXCY                       : 67
+#      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 23
-# FlipFlops/Latches                : 24
-#      FD                          : 1
-#      FDE                         : 23
+#      XORCY                       : 70
+# FlipFlops/Latches                : 79
+#      FD                          : 5
+#      FDE                         : 28
+#      FDRE                        : 46
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 4
+# IO Buffers                       : 6
+#      IBUF                        : 2
 #      OBUF                        : 4
 
 Device utilization summary:
@@ -260,20 +327,20 @@ Selected Device : 6slx45fgg676-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              24  out of  54576     0%  
- Number of Slice LUTs:                   55  out of  27288     0%  
-    Number used as Logic:                55  out of  27288     0%  
+ Number of Slice Registers:              79  out of  54576     0%  
+ Number of Slice LUTs:                  146  out of  27288     0%  
+    Number used as Logic:               146  out of  27288     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     55
-   Number with an unused Flip Flop:      31  out of     55    56%  
-   Number with an unused LUT:             0  out of     55     0%  
-   Number of fully used LUT-FF pairs:    24  out of     55    43%  
-   Number of unique control sets:         2
+ Number of LUT Flip Flop pairs used:    147
+   Number with an unused Flip Flop:      68  out of    147    46%  
+   Number with an unused LUT:             1  out of    147     0%  
+   Number of fully used LUT-FF pairs:    78  out of    147    53%  
+   Number of unique control sets:         5
 
 IO Utilization: 
  Number of IOs:                           7
- Number of bonded IOBs:                   5  out of    358     1%  
+ Number of bonded IOBs:                   7  out of    358     1%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -299,7 +366,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk_24                             | BUFGP                  | 24    |
+clk_24                             | BUFGP                  | 79    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -310,9 +377,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.207ns (Maximum Frequency: 311.808MHz)
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 3.634ns
+   Minimum period: 5.618ns (Maximum Frequency: 178.007MHz)
+   Minimum input arrival time before clock: 3.278ns
+   Maximum output required time after clock: 4.309ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -321,64 +388,69 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_24'
-  Clock period: 3.207ns (frequency: 311.808MHz)
-  Total number of paths / destination ports: 829 / 24
+  Clock period: 5.618ns (frequency: 178.007MHz)
+  Total number of paths / destination ports: 6085 / 199
 -------------------------------------------------------------------------
-Delay:               3.207ns (Levels of Logic = 21)
-  Source:            XLXI_1/counter_0 (FF)
-  Destination:       XLXI_1/counter_18 (FF)
+Delay:               5.618ns (Levels of Logic = 5)
+  Source:            XLXI_1/counter_5 (FF)
+  Destination:       XLXI_1/counter_19 (FF)
   Source Clock:      clk_24 rising
   Destination Clock: clk_24 rising
 
-  Data Path: XLXI_1/counter_0 to XLXI_1/counter_18
+  Data Path: XLXI_1/counter_5 to XLXI_1/counter_19
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              3   0.447   0.650  XLXI_1/counter_0 (XLXI_1/counter_0)
-     INV:I->O              1   0.206   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_lut<0>_INV_0 (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<0> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<1> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<2> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<3> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<4> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<5> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<5>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<6> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<6>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<7> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<7>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<8> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<8>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<9> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<9>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<10> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<10>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<11> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<11>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<12> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<12>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<13> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<13>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<14> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<14>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<15> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<15>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<16> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<16>)
-     MUXCY:CI->O           1   0.019   0.000  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<17> (XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_cy<17>)
-     XORCY:CI->O           1   0.180   0.924  XLXI_1/Madd_counter[23]_GND_6_o_add_19_OUT_xor<18> (XLXI_1/counter[23]_GND_6_o_add_19_OUT<18>)
-     LUT5:I0->O            1   0.203   0.000  XLXI_1/Mmux_freq[2]_counter[23]_wide_mux_22_OUT101 (XLXI_1/freq[2]_counter[23]_wide_mux_22_OUT<18>)
-     FDE:D                     0.102          XLXI_1/counter_18
+     FDE:C->Q              2   0.447   0.864  XLXI_1/counter_5 (XLXI_1/counter_5)
+     LUT4:I0->O            4   0.203   0.788  XLXI_1/counter[23]_GND_6_o_equal_13_o<23>1_SW0 (N6)
+     LUT6:I4->O            2   0.203   0.845  XLXI_1/counter[23]_GND_6_o_equal_16_o<23>11 (XLXI_1/counter[23]_GND_6_o_equal_16_o<23>1)
+     LUT6:I3->O            2   0.205   0.617  XLXI_1/Mmux_freq[2]_counter[23]_wide_mux_22_OUT1115 (XLXI_1/Mmux_freq[2]_counter[23]_wide_mux_22_OUT1115)
+     LUT6:I5->O           13   0.205   0.933  XLXI_1/Mmux_freq[2]_counter[23]_wide_mux_22_OUT1119 (XLXI_1/Mmux_freq[2]_counter[23]_wide_mux_22_OUT111)
+     LUT6:I5->O            1   0.205   0.000  XLXI_1/Mmux_freq[2]_led_int_Mux_21_o1 (XLXI_1/freq[2]_led_int_Mux_21_o)
+     FD:D                      0.102          XLXI_1/led_int
     ----------------------------------------
-    Total                      3.207ns (1.633ns logic, 1.574ns route)
-                                       (50.9% logic, 49.1% route)
+    Total                      5.618ns (1.570ns logic, 4.048ns route)
+                                       (27.9% logic, 72.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_24'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              3.278ns (Levels of Logic = 3)
+  Source:            button_up (PAD)
+  Destination:       XLXI_2/Inst_debounce_up/pulse_out (FF)
+  Destination Clock: clk_24 rising
+
+  Data Path: button_up to XLXI_2/Inst_debounce_up/pulse_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.864  button_up_IBUF (button_up_IBUF)
+     LUT5:I1->O            1   0.203   0.684  XLXI_2/Inst_debounce_up/_n00241 (XLXI_2/Inst_debounce_up/_n0024)
+     LUT3:I1->O            1   0.203   0.000  XLXI_2/Inst_debounce_up/pulse_out_rstpot (XLXI_2/Inst_debounce_up/pulse_out_rstpot)
+     FD:D                      0.102          XLXI_2/Inst_debounce_up/pulse_out
+    ----------------------------------------
+    Total                      3.278ns (1.730ns logic, 1.548ns route)
+                                       (52.8% logic, 47.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_24'
-  Total number of paths / destination ports: 1 / 1
+  Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              3.634ns (Levels of Logic = 1)
-  Source:            XLXI_1/led_int (FF)
-  Destination:       led (PAD)
+Offset:              4.309ns (Levels of Logic = 1)
+  Source:            XLXI_2/freq_int_1 (FF)
+  Destination:       freq_out<1> (PAD)
   Source Clock:      clk_24 rising
 
-  Data Path: XLXI_1/led_int to led
+  Data Path: XLXI_2/freq_int_1 to freq_out<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  XLXI_1/led_int (XLXI_1/led_int)
-     OBUF:I->O                 2.571          led_OBUF (led)
+     FDE:C->Q             32   0.447   1.291  XLXI_2/freq_int_1 (XLXI_2/freq_int_1)
+     OBUF:I->O                 2.571          freq_out_1_OBUF (freq_out<1>)
     ----------------------------------------
-    Total                      3.634ns (3.018ns logic, 0.616ns route)
-                                       (83.0% logic, 17.0% route)
+    Total                      4.309ns (3.018ns logic, 1.291ns route)
+                                       (70.0% logic, 30.0% route)
 
 =========================================================================
 
@@ -390,20 +462,20 @@ Clock to Setup on destination clock clk_24
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_24         |    3.207|         |         |         |
+clk_24         |    5.618|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.11 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.08 secs
  
 --> 
 
-Total memory usage is 267564 kilobytes
+Total memory usage is 271248 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    4 (   0 filtered)
+Number of warnings :   18 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
