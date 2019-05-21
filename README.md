@@ -1,2 +1,3 @@
 # AESL
-Advanced Embedded Systems Laboratory 
+Advanced Embedded Systems Laboratory exercises
+University of Freiburg
