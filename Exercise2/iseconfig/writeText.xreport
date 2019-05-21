@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-05-21T11:25:22</DateModified>
+  <DateModified>2019-05-21T14:40:24</DateModified>
   <ModuleName>writeText</ModuleName>
-  <SummaryTimeStamp>2019-05-21T11:12:57</SummaryTimeStamp>
+  <SummaryTimeStamp>2019-05-21T14:38:56</SummaryTimeStamp>
   <SavedFilePath>C:/Projects/Exercise2/iseconfig/writeText.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Projects/Exercise2\</ImplementationReportsDirectory>
   <DateInitialized>2019-05-20T18:38:41</DateInitialized>

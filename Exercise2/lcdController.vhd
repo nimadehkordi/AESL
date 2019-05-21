@@ -40,7 +40,7 @@ entity lcdController is
            en : out  STD_LOGIC;
            rw : out  STD_LOGIC;
            rs : out  STD_LOGIC;
-			     backLightStatus : IN std_logic;
+			  backLightStatus : IN std_logic;
            backLight : out  STD_LOGIC;
            data : inout  STD_LOGIC_VECTOR (3 downto 0)
            );
@@ -212,10 +212,11 @@ begin
           ELSE
             clk_count := 0;
             state <= ready_state;
+            ready <= '1';
           END IF;
       end case;
 
-      --reset
+      --asynchronous reset
       IF(reset_n = '1') THEN
           state <= initialize;
           clk_count := 0;
@@ -223,18 +224,5 @@ begin
 
     end if;
   end process;
-
---  controller_fsm_output : process(state)
---  begin
---    if state = initialize then
---
---    elsif wait_for_input then
---
---    elsif write_to_output then
---
---    else
---
---    end if;
---  end process;
 
 end Behavioral;

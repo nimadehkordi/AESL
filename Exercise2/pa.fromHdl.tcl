@@ -1,7 +1,7 @@
 
 # PlanAhead Launch Script for Pre-Synthesis Floorplanning, created by Project Navigator
 
-create_project -name Exercise2 -dir "C:/Projects/Exercise2/planAhead_run_1" -part xc6slx45fgg676-3
+create_project -name Exercise2 -dir "C:/Projects/Exercise2/planAhead_run_2" -part xc6slx45fgg676-3
 set_param project.pinAheadLayout yes
 set srcset [get_property srcset [current_run -impl]]
 set_property target_constrs_file "writeText.ucf" [current_fileset -constrset]

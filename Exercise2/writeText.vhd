@@ -19,6 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -81,13 +83,10 @@ architecture Behavioral of writeText is
   CONSTANT  freq  : INTEGER := 24; --system clock frequency in MHz
 
   subtype letter is STD_LOGIC_VECTOR (7 downto 0);
-  type word_type is array (3 downto 0) of letter;
-  constant Nima : word_type := ("01001110","01101001","01101101","01100001");
-
-  type state_type is (idle, write_letter);
-  signal state : state_type := idle;
-
-begin
+  type word_type is array (0 to 15) of letter;
+  --AESL EX02
+  constant text_to_write : word_type := ("01000001", "01000101", "01010011", "01001100", "00100000", "01000101", "01011000", "00110000", "00110010", "00100000", "00100000", "00100000", "00100000", "00100000", "00100000", "00100000");
+  begin
 
   ready_out <= ready;
 
@@ -113,27 +112,23 @@ begin
 		data => data
 	);
 
-  writeText : process(clk_24)
+  writeText : process(clk_24,reset_n_debounced)
+  VARIABLE letter_count : integer range 0 to 15 := 0; --event counter for timing
   begin
     if rising_edge(clk_24) then
-      case( state ) is
-        when idle =>
-          if (ready = '1') then
-            state <= write_letter;
-          else
-            state <= idle;
-          end if;
-        when write_letter =>
-          posX <= "0000";
-          posY <= '0';
+      if(letter_count < word_type'length) then
+        if ready = '1' then
           writeData <= '1';
-          dataOut <= "01101000";
-          state <= idle;
-      end case;
-	   end if;
-     IF(reset_n_debounced = '1') THEN
-         state <= idle;
-     END IF;
+          posX <= std_logic_vector(to_unsigned(letter_count, posX'length));
+          posY <= '0';
+          dataOut <= text_to_write(letter_count);
+          letter_count := letter_count + 1;
+        end if;
+      end if;
+    end if;
+    IF(reset_n_debounced = '1') THEN
+         letter_count := 0;
+    END IF;
   end process;
 
 end Behavioral;
