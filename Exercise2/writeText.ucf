@@ -1,0 +1,22 @@
+
+
+NET "data[3]" LOC = T18;
+NET "data[2]" LOC = D18;
+NET "data[1]" LOC = V18;
+NET "data[0]" LOC = W18;
+NET "backLight" LOC = AD24;
+NET "en" LOC = D21;
+NET "rs" LOC = F24;
+NET "rw" LOC = C21;
+
+
+NET "clk_24" LOC = M21;
+
+
+NET "backLightStatus" LOC = W19;
+
+
+NET "ready_out" LOC = N24;
+
+
+NET "reset_n" LOC = AE24;

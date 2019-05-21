@@ -1,0 +1,19 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue May 21 11:28:54 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "backLight" LOCATE = SITE "AD24" LEVEL 1;
+COMP "en" LOCATE = SITE "D21" LEVEL 1;
+COMP "rs" LOCATE = SITE "F24" LEVEL 1;
+COMP "rw" LOCATE = SITE "C21" LEVEL 1;
+COMP "data<0>" LOCATE = SITE "W18" LEVEL 1;
+COMP "data<1>" LOCATE = SITE "V18" LEVEL 1;
+COMP "data<2>" LOCATE = SITE "D18" LEVEL 1;
+COMP "data<3>" LOCATE = SITE "T18" LEVEL 1;
+COMP "reset_n" LOCATE = SITE "AE24" LEVEL 1;
+COMP "ready_out" LOCATE = SITE "N24" LEVEL 1;
+COMP "clk_24" LOCATE = SITE "M21" LEVEL 1;
+COMP "backLightStatus" LOCATE = SITE "W19" LEVEL 1;
+SCHEMATIC END;
+

@@ -1,0 +1,632 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: writeText.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "writeText.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "writeText"
+Output Format                      : NGC
+Target Device                      : xc6slx45-3-fgg676
+
+---- Source Options
+Top Module Name                    : writeText
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Projects\Exercise2\lcdController.vhd" into library work
+Parsing entity <lcdController>.
+Parsing architecture <Behavioral> of entity <lcdcontroller>.
+Parsing VHDL file "C:\Projects\Exercise2\debounce.vhd" into library work
+Parsing entity <debounce>.
+Parsing architecture <behav> of entity <debounce>.
+Parsing VHDL file "C:\Projects\Exercise2\writeText.vhd" into library work
+Parsing entity <writeText>.
+Parsing architecture <Behavioral> of entity <writetext>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <writeText> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <debounce> (architecture <behav>) from library <work>.
+
+Elaborating entity <lcdController> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "C:\Projects\Exercise2\writeText.vhd" Line 134: reset_n_debounced should be on the sensitivity list of the process
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <writeText>.
+    Related source file is "C:\Projects\Exercise2\writeText.vhd".
+    Found 1-bit register for signal <state>.
+    Found 4-bit register for signal <posX>.
+    Found 1-bit register for signal <posY>.
+    Found 8-bit register for signal <dataOut>.
+    Summary:
+	inferred  14 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <writeText> synthesized.
+
+Synthesizing Unit <debounce>.
+    Related source file is "C:\Projects\Exercise2\debounce.vhd".
+    Found 1-bit register for signal <pulse_out>.
+    Found 32-bit register for signal <count>.
+    Found 1-bit register for signal <state>.
+    Found 32-bit adder for signal <count[31]_GND_5_o_add_1_OUT> created at line 43.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  34 D-type flip-flop(s).
+Unit <debounce> synthesized.
+
+Synthesizing Unit <lcdController>.
+    Related source file is "C:\Projects\Exercise2\lcdController.vhd".
+    Found 1-bit register for signal <en>.
+    Found 32-bit register for signal <controller_fsm.clk_count>.
+    Found 4-bit register for signal <data>.
+    Found 1-bit register for signal <rw>.
+    Found 1-bit register for signal <rs>.
+    Found 2-bit register for signal <state>.
+    Found 8-bit register for signal <dataIn_internal>.
+    Found 7-bit register for signal <address_internal>.
+    Found 1-bit register for signal <ready>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 38                                             |
+    | Inputs             | 34                                             |
+    | Outputs            | 2                                              |
+    | Clock              | clk_24 (rising_edge)                           |
+    | Reset              | reset_n (positive)                             |
+    | Reset type         | synchronous                                    |
+    | Reset State        | initialize                                     |
+    | Power Up State     | initialize                                     |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit adder for signal <controller_fsm.clk_count[31]_GND_6_o_add_0_OUT> created at line 67.
+    Found 1-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_Mux_142_o> created at line 63.
+    Found 32-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_144_OUT> created at line 63.
+    Found 4-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_145_OUT> created at line 63.
+    Found 1-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_Mux_146_o> created at line 63.
+    Found 1-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_Mux_147_o> created at line 63.
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_2_o> created at line 68
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_3_o> created at line 70
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_4_o> created at line 75
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_5_o> created at line 77
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_6_o> created at line 82
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_7_o> created at line 84
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_8_o> created at line 89
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_9_o> created at line 91
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_10_o> created at line 96
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_11_o> created at line 98
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_12_o> created at line 103
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_13_o> created at line 105
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_14_o> created at line 110
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o> created at line 112
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_16_o> created at line 117
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_17_o> created at line 119
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_18_o> created at line 124
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_19_o> created at line 126
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_20_o> created at line 131
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_21_o> created at line 133
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_22_o> created at line 138
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_23_o> created at line 140
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_24_o> created at line 145
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_25_o> created at line 147
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_26_o> created at line 152
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_27_o> created at line 154
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_112_o> created at line 186
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_113_o> created at line 191
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_114_o> created at line 193
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_115_o> created at line 198
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_116_o> created at line 200
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_117_o> created at line 205
+    Found 32-bit comparator greater for signal <GND_6_o_controller_fsm.clk_count[31]_LessThan_118_o> created at line 207
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  55 D-type flip-flop(s).
+	inferred  33 Comparator(s).
+	inferred 200 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <lcdController> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit adder                                          : 2
+# Registers                                            : 15
+ 1-bit register                                        : 8
+ 32-bit register                                       : 2
+ 4-bit register                                        : 2
+ 7-bit register                                        : 1
+ 8-bit register                                        : 2
+# Comparators                                          : 33
+ 32-bit comparator greater                             : 33
+# Multiplexers                                         : 201
+ 1-bit 2-to-1 multiplexer                              : 127
+ 1-bit 3-to-1 multiplexer                              : 3
+ 32-bit 2-to-1 multiplexer                             : 34
+ 32-bit 3-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 35
+ 4-bit 3-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <address_internal_4> in Unit <Inst_lcdController> is equivalent to the following FF/Latch, which will be removed : <address_internal_5> 
+WARNING:Xst:1710 - FF/Latch <address_internal_6> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <address_internal_4> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <address_internal_3> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <address_internal_2> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <address_internal_1> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <address_internal_0> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_7> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_6> (without init value) has a constant value of 1 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_5> (without init value) has a constant value of 1 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_4> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_3> (without init value) has a constant value of 1 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_2> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_1> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_0> (without init value) has a constant value of 0 in block <Inst_lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_7> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_6> (without init value) has a constant value of 1 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_5> (without init value) has a constant value of 1 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_4> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_3> (without init value) has a constant value of 1 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_2> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_1> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_0> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posX_3> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posX_2> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posX_1> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posX_0> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posY> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+
+Synthesizing (advanced) Unit <debounce>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+Unit <debounce> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 32-bit adder                                          : 1
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 71
+ Flip-Flops                                            : 71
+# Comparators                                          : 33
+ 32-bit comparator greater                             : 33
+# Multiplexers                                         : 200
+ 1-bit 2-to-1 multiplexer                              : 126
+ 1-bit 3-to-1 multiplexer                              : 3
+ 32-bit 2-to-1 multiplexer                             : 34
+ 32-bit 3-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 35
+ 4-bit 3-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <address_internal_4> (without init value) has a constant value of 0 in block <lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <address_internal_5> (without init value) has a constant value of 0 in block <lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dataOut_0> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_1> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_2> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_3> (without init value) has a constant value of 1 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_4> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_5> (without init value) has a constant value of 1 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_6> (without init value) has a constant value of 1 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataOut_7> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posX_0> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posX_1> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posX_2> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posX_3> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <posY> (without init value) has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <state> of sequential type is unconnected in block <writeText>.
+INFO:Xst:2261 - The FF/Latch <dataIn_internal_0> in Unit <lcdController> is equivalent to the following 9 FFs/Latches, which will be removed : <dataIn_internal_1> <dataIn_internal_2> <dataIn_internal_4> <dataIn_internal_7> <address_internal_0> <address_internal_1> <address_internal_2> <address_internal_3> <address_internal_6> 
+INFO:Xst:2261 - The FF/Latch <dataIn_internal_3> in Unit <lcdController> is equivalent to the following 2 FFs/Latches, which will be removed : <dataIn_internal_5> <dataIn_internal_6> 
+WARNING:Xst:1710 - FF/Latch <dataIn_internal_0> (without init value) has a constant value of 0 in block <lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataIn_internal_3> (without init value) has a constant value of 1 in block <lcdController>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <Inst_lcdController/FSM_0> on signal <state[1:2]> with gray encoding.
+-------------------------
+ State       | Encoding
+-------------------------
+ initialize  | 00
+ ready_state | 01
+ send        | 11
+-------------------------
+
+Optimizing unit <writeText> ...
+
+Optimizing unit <debounce> ...
+
+Optimizing unit <lcdController> ...
+WARNING:Xst:1710 - FF/Latch <rw> (without init value) has a constant value of 0 in block <lcdController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_lcdController/controller_fsm.clk_count_20> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_21> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_22> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_23> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_24> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_25> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_26> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_27> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_28> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_29> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_30> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_lcdController/controller_fsm.clk_count_31> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_23> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_24> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_25> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_26> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_27> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_28> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_29> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_30> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_debounce/count_31> has a constant value of 0 in block <writeText>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block writeText, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 54
+ Flip-Flops                                            : 54
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : writeText.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 667
+#      GND                         : 1
+#      INV                         : 13
+#      LUT1                        : 43
+#      LUT2                        : 31
+#      LUT3                        : 23
+#      LUT4                        : 45
+#      LUT5                        : 151
+#      LUT6                        : 71
+#      MUXCY                       : 240
+#      MUXF7                       : 4
+#      VCC                         : 1
+#      XORCY                       : 44
+# FlipFlops/Latches                : 54
+#      FD                          : 6
+#      FDE                         : 1
+#      FDR                         : 23
+#      FDRE                        : 24
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 11
+#      IBUF                        : 2
+#      OBUF                        : 9
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx45fgg676-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              54  out of  54576     0%  
+ Number of Slice LUTs:                  377  out of  27288     1%  
+    Number used as Logic:               377  out of  27288     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    377
+   Number with an unused Flip Flop:     323  out of    377    85%  
+   Number with an unused LUT:             0  out of    377     0%  
+   Number of fully used LUT-FF pairs:    54  out of    377    14%  
+   Number of unique control sets:         6
+
+IO Utilization: 
+ Number of IOs:                          12
+ Number of bonded IOBs:                  12  out of    358     3%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk_24                             | BUFGP                  | 54    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 8.871ns (Maximum Frequency: 112.729MHz)
+   Minimum input arrival time before clock: 2.725ns
+   Maximum output required time after clock: 3.762ns
+   Maximum combinational path delay: 4.372ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_24'
+  Clock period: 8.871ns (frequency: 112.729MHz)
+  Total number of paths / destination ports: 499566 / 125
+-------------------------------------------------------------------------
+Delay:               8.871ns (Levels of Logic = 31)
+  Source:            Inst_lcdController/controller_fsm.clk_count_0 (FF)
+  Destination:       Inst_lcdController/data_0 (FF)
+  Source Clock:      clk_24 rising
+  Destination Clock: clk_24 rising
+
+  Data Path: Inst_lcdController/controller_fsm.clk_count_0 to Inst_lcdController/data_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              1   0.447   0.579  Inst_lcdController/controller_fsm.clk_count_0 (Inst_lcdController/controller_fsm.clk_count_0)
+     INV:I->O              1   0.206   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_lut<0>_INV_0 (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<0> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<1> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<2> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<3> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<4> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<5> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<6> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<7> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<8> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<9> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<10> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<11> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<12> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<13> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<13>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<14> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<14>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<15> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<15>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<16> (Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_cy<16>)
+     XORCY:CI->O          63   0.180   1.978  Inst_lcdController/Madd_controller_fsm.clk_count[31]_GND_6_o_add_0_OUT_xor<17> (Inst_lcdController/controller_fsm.clk_count[31]_GND_6_o_add_0_OUT<17>)
+     LUT5:I0->O            0   0.203   0.000  Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_lutdi1 (Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_lutdi1)
+     MUXCY:DI->O           1   0.145   0.000  Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_cy<2> (Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_cy<3> (Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_cy<4> (Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_cy<4>)
+     MUXCY:CI->O          15   0.019   0.982  Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_cy<5> (Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_15_o_cy<5>)
+     LUT1:I0->O            1   0.205   0.000  Inst_lcdController/Mmux_state[1]_X_6_o_Mux_146_o1111_SW0_cy_rt (Inst_lcdController/Mmux_state[1]_X_6_o_Mux_146_o1111_SW0_cy_rt)
+     MUXCY:S->O            1   0.366   0.580  Inst_lcdController/Mmux_state[1]_X_6_o_Mux_146_o1111_SW0_cy (Inst_lcdController/Mcompar_GND_6_o_controller_fsm.clk_count[31]_LessThan_22_o_cy<5>_l1)
+     LUT3:I2->O            2   0.205   0.864  Inst_lcdController/Mmux_state[1]_X_6_o_Mux_146_o1111_SW0_cy1_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy (N38)
+     LUT6:I2->O            1   0.203   0.000  Inst_lcdController/Mmux_state[1]_X_6_o_wide_mux_145_OUT62_F (N60)
+     MUXF7:I0->O           2   0.131   0.617  Inst_lcdController/Mmux_state[1]_X_6_o_wide_mux_145_OUT62 (Inst_lcdController/Mmux_state[1]_X_6_o_wide_mux_145_OUT61)
+     LUT6:I5->O            1   0.205   0.000  Inst_lcdController/Mmux_state[1]_X_6_o_wide_mux_145_OUT65_G (N55)
+     MUXF7:I1->O           1   0.140   0.000  Inst_lcdController/Mmux_state[1]_X_6_o_wide_mux_145_OUT65 (Inst_lcdController/state[1]_X_6_o_wide_mux_145_OUT<0>)
+     FD:D                      0.102          Inst_lcdController/data_0
+    ----------------------------------------
+    Total                      8.871ns (3.271ns logic, 5.600ns route)
+                                       (36.9% logic, 63.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_24'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              2.725ns (Levels of Logic = 2)
+  Source:            reset_n (PAD)
+  Destination:       Inst_debounce/state (FF)
+  Destination Clock: clk_24 rising
+
+  Data Path: reset_n to Inst_debounce/state
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.616  reset_n_IBUF (reset_n_IBUF)
+     INV:I->O              1   0.206   0.579  Inst_debounce/button_in_INV_3_o1_INV_0 (Inst_debounce/button_in_INV_3_o)
+     FDRE:D                    0.102          Inst_debounce/state
+    ----------------------------------------
+    Total                      2.725ns (1.530ns logic, 1.195ns route)
+                                       (56.1% logic, 43.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_24'
+  Total number of paths / destination ports: 7 / 7
+-------------------------------------------------------------------------
+Offset:              3.762ns (Levels of Logic = 1)
+  Source:            Inst_lcdController/data_0 (FF)
+  Destination:       data<0> (PAD)
+  Source Clock:      clk_24 rising
+
+  Data Path: Inst_lcdController/data_0 to data<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.447   0.744  Inst_lcdController/data_0 (Inst_lcdController/data_0)
+     OBUF:I->O                 2.571          data_0_OBUF (data<0>)
+    ----------------------------------------
+    Total                      3.762ns (3.018ns logic, 0.744ns route)
+                                       (80.2% logic, 19.8% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               4.372ns (Levels of Logic = 2)
+  Source:            backLightStatus (PAD)
+  Destination:       backLight (PAD)
+
+  Data Path: backLightStatus to backLight
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.579  backLightStatus_IBUF (backLightStatus_IBUF)
+     OBUF:I->O                 2.571          backLight_OBUF (backLight)
+    ----------------------------------------
+    Total                      4.372ns (3.793ns logic, 0.579ns route)
+                                       (86.8% logic, 13.2% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk_24
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_24         |    8.871|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 11.03 secs
+ 
+--> 
+
+Total memory usage is 263648 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   68 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

@@ -1,0 +1,2 @@
+vhdl work "lcdController.vhd"
+vhdl work "lcdController_testbench.vhd"

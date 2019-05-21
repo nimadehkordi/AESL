@@ -1,0 +1,3 @@
+vhdl work "lcdController.vhd"
+vhdl work "debounce.vhd"
+vhdl work "writeText.vhd"

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Projects/Exercise2/writeData_test_isim_beh.exe" -prj "C:/Projects/Exercise2/writeData_test_beh.prj" "work.writeData_test" 
