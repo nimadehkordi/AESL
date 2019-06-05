@@ -1,0 +1,1 @@
+vhdtdtfi -prj Exercise3 -o C:/Projects/Exercise3/debounce.vhi -module debounce -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work debounce.vhd 

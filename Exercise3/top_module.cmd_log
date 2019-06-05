@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "C:/Projects/Exercise3/top_module.xst" -ofn "C:/Projects/Exercise3/top_module.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top_module.ucf -p xc6slx45-fgg676-3 top_module.ngc top_module.ngd  
+map -intstyle ise -p xc6slx45-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o top_module_map.ncd top_module.ngd top_module.pcf 
