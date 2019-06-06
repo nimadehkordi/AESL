@@ -19,7 +19,6 @@ end entity I2C_slave;
 ------------------------------------------------------------
 architecture arch of I2C_slave is
   -- this assumes that system's clock is much faster than SCL
-  constant DEBOUNCING_WAIT_CYCLES : integer   := 4;
   CONSTANT  freq  : INTEGER := 24; --system clock frequency in MHz
 
   type state_t is (idle, get_address_and_cmd,
@@ -66,6 +65,7 @@ begin
 
   scl_debounced <= scl_reg;
 
+  --delay the sda
   sda_delay: entity work.delay
     PORT MAP(
     clk => clk,
@@ -137,7 +137,7 @@ begin
           end if;
 
         when get_address_and_cmd =>
-          if(clk_count < 1000 * freq) then
+          if(clk_count < 1000 * freq) then --time out of 1ms
             clk_count := clk_count + 1;
             if scl_rising_reg = '1' then
               if bits_processed_reg < 7 then
