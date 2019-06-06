@@ -1,10 +1,3 @@
-------------------------------------------------------------
--- File      : I2C_slave.vhd
-------------------------------------------------------------
--- Author    : Peter Samarin <peter.samarin@gmail.com>
-------------------------------------------------------------
--- Copyright (c) 2016 Peter Samarin
-------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -124,6 +117,7 @@ begin
   -- I2C state machine
   ----------------------------------------------------------
   process (clk) is
+  VARIABLE clk_count : INTEGER := 0; --event counter for timing
   begin
     if rising_edge(clk) then
       -- Default assignments
@@ -136,112 +130,143 @@ begin
       case state_reg is
 
         when idle =>
+          clk_count := 0;
           if start_reg = '1' then
             state_reg          <= get_address_and_cmd;
             bits_processed_reg <= 0;
           end if;
 
         when get_address_and_cmd =>
-          if scl_rising_reg = '1' then
-            if bits_processed_reg < 7 then
-              bits_processed_reg             <= bits_processed_reg + 1;
-              addr_reg(6-bits_processed_reg) <= sda_debounced;
-            elsif bits_processed_reg = 7 then
-              bits_processed_reg <= bits_processed_reg + 1;
-              cmd_reg            <= sda_debounced;
-            end if;
-          end if;
-
-          if bits_processed_reg = 8 and scl_falling_reg = '1' then
-            bits_processed_reg <= 0;
-            if addr_reg = SLAVE_ADDR then  -- check req address
-              state_reg <= answer_ack_start;
-              if cmd_reg = '1' then  -- issue read request
-                read_req_reg       <= '1';
-                data_to_master_reg <= data_to_master;
+          if(clk_count < 1000 * freq) then
+            clk_count := clk_count + 1;
+            if scl_rising_reg = '1' then
+              if bits_processed_reg < 7 then
+                bits_processed_reg             <= bits_processed_reg + 1;
+                addr_reg(6-bits_processed_reg) <= sda_debounced;
+              elsif bits_processed_reg = 7 then
+                bits_processed_reg <= bits_processed_reg + 1;
+                cmd_reg            <= sda_debounced;
               end if;
-            else
-              assert false
-                report ("I2C: target/slave address mismatch (data is being sent to another slave).")
-                severity note;
-              state_reg <= idle;
             end if;
+
+            if bits_processed_reg = 8 and scl_falling_reg = '1' then
+              bits_processed_reg <= 0;
+              if addr_reg = SLAVE_ADDR then  -- check req address
+                state_reg <= answer_ack_start;
+                if cmd_reg = '1' then  -- issue read request
+                  read_req_reg       <= '1';
+                  data_to_master_reg <= data_to_master;
+                end if;
+              else
+                assert false
+                  report ("I2C: target/slave address mismatch (data is being sent to another slave).")
+                  severity note;
+                state_reg <= idle;
+              end if;
+            end if;
+          else
+            state_reg <= idle;
           end if;
 
         ----------------------------------------------------
         -- I2C acknowledge to master
         ----------------------------------------------------
         when answer_ack_start =>
-          sda_wen_reg <= '1';
-          sda_o_reg   <= '0';
-          if scl_falling_reg = '1' then
-            if cmd_reg = '0' then
-              state_reg <= write;
-            else
-              state_reg <= read;
+          if(clk_count < 1000 * freq) then
+            clk_count := clk_count + 1;
+            sda_wen_reg <= '1';
+            sda_o_reg   <= '0';
+            if scl_falling_reg = '1' then
+              if cmd_reg = '0' then
+                state_reg <= write;
+              else
+                state_reg <= read;
+              end if;
             end if;
+          else
+            state_reg <= idle;
           end if;
 
         ----------------------------------------------------
         -- WRITE
         ----------------------------------------------------
         when write =>
-          if scl_rising_reg = '1' then
-            bits_processed_reg <= bits_processed_reg + 1;
-            if bits_processed_reg < 7 then
-              data_reg(6-bits_processed_reg) <= sda_debounced;
-            else
-              data_from_master_reg <= data_reg & sda_debounced;
-              data_valid_reg       <= '1';
+          if(clk_count < 1000 * freq) then
+            clk_count := clk_count + 1;
+            if scl_rising_reg = '1' then
+              bits_processed_reg <= bits_processed_reg + 1;
+              if bits_processed_reg < 7 then
+                data_reg(6-bits_processed_reg) <= sda_debounced;
+              else
+                data_from_master_reg <= data_reg & sda_debounced;
+                data_valid_reg       <= '1';
+              end if;
             end if;
-          end if;
 
-          if scl_falling_reg = '1' and bits_processed_reg = 8 then
-            state_reg          <= answer_ack_start;
-            bits_processed_reg <= 0;
+            if scl_falling_reg = '1' and bits_processed_reg = 8 then
+              state_reg          <= answer_ack_start;
+              bits_processed_reg <= 0;
+            end if;
+          else
+            state_reg <= idle;
           end if;
 
         ----------------------------------------------------
         -- READ: send data to master
         ----------------------------------------------------
         when read =>
-          sda_wen_reg <= '1';
-          sda_o_reg   <= data_to_master_reg(7-bits_processed_reg);
-          if scl_falling_reg = '1' then
-            if bits_processed_reg < 7 then
-              bits_processed_reg <= bits_processed_reg + 1;
-            elsif bits_processed_reg = 7 then
-              state_reg          <= read_ack_start;
-              bits_processed_reg <= 0;
+          if(clk_count < 1000 * freq) then
+            clk_count := clk_count + 1;
+            sda_wen_reg <= '1';
+            sda_o_reg   <= data_to_master_reg(7-bits_processed_reg);
+            if scl_falling_reg = '1' then
+              if bits_processed_reg < 7 then
+                bits_processed_reg <= bits_processed_reg + 1;
+              elsif bits_processed_reg = 7 then
+                state_reg          <= read_ack_start;
+                bits_processed_reg <= 0;
+              end if;
             end if;
+          else
+            state_reg <= idle;
           end if;
 
         ----------------------------------------------------
         -- I2C read master acknowledge
         ----------------------------------------------------
         when read_ack_start =>
-          if scl_rising_reg = '1' then
-            state_reg <= read_ack_got_rising;
-            if sda_debounced = '1' then  -- nack = stop read
-              continue_reg <= '0';
-            else  -- ack = continue read
-              continue_reg       <= '1';
-              read_req_reg       <= '1';  -- request reg byte
-              data_to_master_reg <= data_to_master;
+          if(clk_count < 1000 * freq) then
+            clk_count := clk_count + 1;
+            if scl_rising_reg = '1' then
+              state_reg <= read_ack_got_rising;
+              if sda_debounced = '1' then  -- nack = stop read
+                continue_reg <= '0';
+              else  -- ack = continue read
+                continue_reg       <= '1';
+                read_req_reg       <= '1';  -- request reg byte
+                data_to_master_reg <= data_to_master;
+              end if;
             end if;
+          else
+            state_reg <= idle;
           end if;
 
         when read_ack_got_rising =>
-          if scl_falling_reg = '1' then
-            if continue_reg = '1' then
-              if cmd_reg = '0' then
-                state_reg <= write;
+          if(clk_count < 1000 * freq) then
+            clk_count := clk_count + 1;
+            if scl_falling_reg = '1' then
+              if continue_reg = '1' then
+                if cmd_reg = '0' then
+                  state_reg <= write;
+                else
+                  state_reg <= read;
+                end if;
               else
-                state_reg <= read;
+                state_reg <= read_stop;
               end if;
-            else
-              state_reg <= read_stop;
             end if;
+          else
+            state_reg <= idle;
           end if;
 
         -- Wait for START or STOP to get out of this state

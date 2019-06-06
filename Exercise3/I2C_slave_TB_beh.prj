@@ -1,0 +1,4 @@
+vhdl work "delay.vhd"
+vhdl work "txt_util.vhd"
+vhdl work "I2C_slave.vhd"
+vhdl work "I2C_slave_TB.vhd"

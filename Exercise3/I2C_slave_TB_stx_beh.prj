@@ -1,0 +1,4 @@
+vhdl isim_temp "delay.vhd"
+vhdl isim_temp "txt_util.vhd"
+vhdl isim_temp "I2C_slave.vhd"
+vhdl isim_temp "I2C_slave_TB.vhd"
