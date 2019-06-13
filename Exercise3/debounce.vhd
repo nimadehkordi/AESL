@@ -13,7 +13,7 @@ architecture behav of debounce is
 
 --the below constants decide the working parameters.
 --the higher this is, the more longer time the user has to press the button.
-constant COUNT_MAX : integer := 6000000; --250 ms * 24 MHz = 250000 * 24 = 60
+constant COUNT_MAX : integer := 6000000;
 
 signal count : integer := 0;
 type state_type is (idle,wait_time); --state machine

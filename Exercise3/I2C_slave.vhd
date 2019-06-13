@@ -1,3 +1,13 @@
+
+------------------------------------------------------------
+-- File      : I2C_slave.vhd
+------------------------------------------------------------
+-- Author    : Peter Samarin <peter.samarin@gmail.com>
+-- Adopted and changed by : Nima Riahi Dehkordi
+------------------------------------------------------------
+-- Copyright (c) 2016 Peter Samarin
+------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

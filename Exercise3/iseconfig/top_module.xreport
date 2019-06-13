@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-06-06T11:03:31</DateModified>
+  <DateModified>2019-06-13T14:25:32</DateModified>
   <ModuleName>top_module</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>/lhome/nriahid/Documents/AESL/Exercise3/iseconfig/top_module.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/lhome/nriahid/Documents/AESL/Exercise3</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/lhome/nriahid/Documents/AESL/Exercise3/</ImplementationReportsDirectory>
   <DateInitialized>2019-06-06T11:03:31</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

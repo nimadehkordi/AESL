@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: University of Freiburg
+-- Engineer: Nima Riahi Dehkordi
 -- 
 -- Create Date:    22:55:38 06/01/2019 
 -- Design Name: 
