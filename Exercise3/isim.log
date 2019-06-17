@@ -1,0 +1,45 @@
+ISim log file
+Running: /lhome/nriahid/Documents/AESL/Exercise3/I2C_slave_TB_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /lhome/nriahid/Documents/AESL/Exercise3/I2C_slave_TB_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+----------------------------------------------------------------------
+INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68a - user is root, on host cmtcde6u018.
+WARNING:Security:43 - No license file was found in the standard Xilinx license directory.
+WARNING:Security:44 - Since no license file was found,
+       please run the Xilinx License Configuration Manager
+       (xlcm or "Manage Xilinx Licenses")
+       to assist in obtaining a license.
+ERROR:Security:14 - No feature was available for 'ISIM'.
+
+No such feature exists.
+Feature:       ISIM
+License path:  /lhome/nriahid/.Xilinx/*.lic:/opt/Xilinx/14.7/ISE_DS/ISE//data/*.lic:/opt/Xilinx/14.7/ISE_DS/ISE//coregen/core_licenses/Xilinx.lic:/opt/Xilinx/14.7/ISE_DS/ISE//coregen/core_licenses/XilinxFree.lic:
+FLEXnet Licensing error:-5,357
+For further information, refer to the FLEXnet Licensing documentation,
+available at "www.flexerasoftware.com".
+----------------------------------------------------------------------
+WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+----------------- Testing a single write ------------------
+Finished circuit initialization process.
+# run all
+----------------- Testing a single write ------------------
+----------------- Testing repeated writes -----------------
+----------------- Testing repeated reads ------------------
+----------------- Testing quick write --------------------
+----------------- Testing wrong addresses -----------------
+***************** These tests should all fail *************
+at 108217641 ns(1): Note: I2C: target/slave address mismatch (data is being sent to another slave). (/i2c_slave_tb/DUV/).
+at 108227595 ns(1): Note: No ACK received: expected '0' (/i2c_slave_tb/).
+at 108448977 ns(1): Note: I2C: target/slave address mismatch (data is being sent to another slave). (/i2c_slave_tb/DUV/).
+at 108458931 ns(1): Note: No ACK received: expected '0' (/i2c_slave_tb/).
+at 108680313 ns(1): Note: I2C: target/slave address mismatch (data is being sent to another slave). (/i2c_slave_tb/DUV/).
+at 108690267 ns(1): Note: No ACK received: expected '0' (/i2c_slave_tb/).
+# exit 0
