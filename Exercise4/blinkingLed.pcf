@@ -1,0 +1,9 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sat Jun 15 18:40:17 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "ledout" LOCATE = SITE "N24" LEVEL 1;
+COMP "ledin" LOCATE = SITE "V14" LEVEL 1;
+SCHEMATIC END;
+

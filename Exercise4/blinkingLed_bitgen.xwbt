@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Projects\Exercise4\blinkingLed.ncd
+OUTFILE=C:\Projects\Exercise4\blinkingLed.bit
+FAMILY=Spartan6
+PART=xc6slx45-3fgg676
+WORKINGDIR=C:\Projects\Exercise4
+LICENSE=WebPack
+USER_INFO=211734058_0_0_335

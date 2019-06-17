@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "C:/Projects/Exercise4/blinkingLed.xst" -ofn "C:/Projects/Exercise4/blinkingLed.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc blinkingLed.ucf -p xc6slx45-fgg676-3 blinkingLed.ngc blinkingLed.ngd  
+map -intstyle ise -p xc6slx45-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o blinkingLed_map.ncd blinkingLed.ngd blinkingLed.pcf 
+par -w -intstyle ise -ol high -mt off blinkingLed_map.ncd blinkingLed.ncd blinkingLed.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml blinkingLed.twx blinkingLed.ncd -o blinkingLed.twr blinkingLed.pcf -ucf blinkingLed.ucf 
+bitgen -intstyle ise -f blinkingLed.ut blinkingLed.ncd 

@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Sat Jun 15 18:34:37 2019
+# Process ID: 6564
+# Log file: C:/Projects/Exercise4/planAhead_run_1/planAhead.log
+# Journal file: C:/Projects/Exercise4/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Projects/Exercise4/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin V14 [get_ports ledin]
+endgroup
+startgroup
+set_property package_pin N24 [get_ports ledout]
+endgroup
+save_constraints
