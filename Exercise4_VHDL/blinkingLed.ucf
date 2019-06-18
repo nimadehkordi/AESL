@@ -1,0 +1,22 @@
+
+
+#NET "ledin" LOC = U15;
+#NET "ledout" LOC = N24;
+
+# PlanAhead Generated physical constraints 
+
+NET "data_in[3]" LOC = AD17;
+NET "data_in[2]" LOC = AD15;
+NET "data_in[1]" LOC = AC16;
+NET "data_in[0]" LOC = AD18;
+NET "data_out[3]" LOC = T18;
+NET "data_out[2]" LOC = D18;
+NET "data_out[1]" LOC = V18;
+NET "data_out[0]" LOC = W18;
+NET "back_light_in" LOC = W19;
+NET "back_light_out" LOC = AD24;
+NET "en_in" LOC = U15;
+NET "en_out" LOC = D21;
+NET "rs_in" LOC = V14;
+NET "rs_out" LOC = F24;
+NET "rw_out" LOC = C21;

@@ -1,0 +1,22 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Jun 18 11:48:32 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "rs_in" LOCATE = SITE "V14" LEVEL 1;
+COMP "back_light_out" LOCATE = SITE "AD24" LEVEL 1;
+COMP "rw_out" LOCATE = SITE "C21" LEVEL 1;
+COMP "data_out<0>" LOCATE = SITE "W18" LEVEL 1;
+COMP "data_out<1>" LOCATE = SITE "V18" LEVEL 1;
+COMP "data_out<2>" LOCATE = SITE "D18" LEVEL 1;
+COMP "data_out<3>" LOCATE = SITE "T18" LEVEL 1;
+COMP "en_in" LOCATE = SITE "U15" LEVEL 1;
+COMP "data_in<0>" LOCATE = SITE "AD18" LEVEL 1;
+COMP "data_in<1>" LOCATE = SITE "AC16" LEVEL 1;
+COMP "data_in<2>" LOCATE = SITE "AD15" LEVEL 1;
+COMP "data_in<3>" LOCATE = SITE "AD17" LEVEL 1;
+COMP "rs_out" LOCATE = SITE "F24" LEVEL 1;
+COMP "back_light_in" LOCATE = SITE "W19" LEVEL 1;
+COMP "en_out" LOCATE = SITE "D21" LEVEL 1;
+SCHEMATIC END;
+

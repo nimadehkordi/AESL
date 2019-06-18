@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "C:/Projects/Exercise4/lcd_connect.xst" -ofn "C:/Projects/Exercise4/lcd_connect.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc blinkingLed.ucf -p xc6slx45-fgg676-3 lcd_connect.ngc lcd_connect.ngd  
+map -intstyle ise -p xc6slx45-fgg676-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o lcd_connect_map.ncd lcd_connect.ngd lcd_connect.pcf 
+par -w -intstyle ise -ol high -mt off lcd_connect_map.ncd lcd_connect.ncd lcd_connect.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml lcd_connect.twx lcd_connect.ncd -o lcd_connect.twr lcd_connect.pcf -ucf blinkingLed.ucf 
+bitgen -intstyle ise -f lcd_connect.ut lcd_connect.ncd 

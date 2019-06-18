@@ -1,0 +1,59 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml lcd_connect.twx lcd_connect.ncd -o lcd_connect.twr
+lcd_connect.pcf -ucf blinkingLed.ucf
+
+Design file:              lcd_connect.ncd
+Physical constraint file: lcd_connect.pcf
+Device,package,speed:     xc6slx45,fgg676,C,-3 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+back_light_in  |back_light_out |    7.009|
+data_in<0>     |data_out<0>    |    6.760|
+data_in<1>     |data_out<1>    |    7.534|
+data_in<2>     |data_out<2>    |   12.708|
+data_in<3>     |data_out<3>    |    8.169|
+en_in          |en_out         |   13.887|
+rs_in          |rs_out         |   13.252|
+---------------+---------------+---------+
+
+
+Analysis completed Tue Jun 18 11:48:51 2019 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 259 MB
+
+
+
